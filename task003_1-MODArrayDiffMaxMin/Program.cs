@@ -11,19 +11,16 @@ double[] fillArrayOption(int lengthForFill, string type) //заполняет м
     if(type.ToLower() == "y")
     {
         int randomType;
-        double randomChioce;
         for (int i = 0; i < lengthForFill; i++)
         {
             randomType = new Random().Next(0, 2);
             if (randomType == 1)
             {
-                randomChioce = new Random().NextDouble() * 100;
-                result[i] = Math.Round(randomChioce, 1);
+                result[i] = new Random().NextDouble() * 100;
             }
             else
             {
-                randomChioce = new Random().Next(1, 101);
-                result[i] = Math.Round(randomChioce, 1);
+                result[i] = new Random().Next(1, 101);
             }
         }
     }
@@ -44,7 +41,7 @@ void printArray(double[] arrayForPrint)
     Console.Write("[");
     for (int i = 0; i < arrayForPrint.Length; i++)
     {
-        Console.Write(arrayForPrint[i]);
+        Console.Write(Math.Round(arrayForPrint[i], 2));
         if (i < arrayForPrint.Length - 1)
         {
             Console.Write("  ");
@@ -69,8 +66,7 @@ void findDifferenceMinMax(double[] arrayForFind) //основная функци
         }
     }
     double result = max - min;
-    Console.WriteLine($"\n{max} - {min} = {result} (разница макс. и мин. элементов индекса)");
-    //иногда в ответе может вылететь "= *,000000000000006", но я решил сюда не ставить МасРаунд, потому что ручной ввод может быть например 5,4565 или 5,1354812
+    Console.WriteLine($"\n{Math.Round(max, 2)} - {Math.Round(min, 2)} = {Math.Round(result, 2)} (разница макс. и мин. элементов массива)");
 }
 
 Console.Write("Введите размер массива (при значении 0 будет задан случайный размер от 4 до 15): ");
