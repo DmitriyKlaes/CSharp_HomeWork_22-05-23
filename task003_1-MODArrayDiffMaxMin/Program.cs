@@ -10,18 +10,9 @@ double[] fillArrayOption(int lengthForFill, string type) //заполняет м
     double[] result = new double[lengthForFill];
     if(type.ToLower() == "y")
     {
-        int randomType;
         for (int i = 0; i < lengthForFill; i++)
         {
-            randomType = new Random().Next(0, 2);
-            if (randomType == 1)
-            {
-                result[i] = new Random().NextDouble() * 100;
-            }
-            else
-            {
-                result[i] = new Random().Next(1, 101);
-            }
+            result[i] = new Random().NextDouble() * 100;
         }
     }
     else if (type.ToLower() == "n")
